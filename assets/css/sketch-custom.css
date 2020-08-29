@@ -1,0 +1,30 @@
+@media(min-width:768px) {
+    .header-container {
+        margin-top: -37px;
+    }
+}
+
+.header-container {
+    background-color: black;
+    background: url('../img/bg.jpg') no-repeat 50% 0;
+    color: #fff;
+  
+    background-size: cover;
+    background-position: center 36%;
+    border-radius: 0;
+}
+
+.header-container>h1 {
+    color: #fff;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%; 
+    height: auto; 
+}
+
+.no-lr-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
