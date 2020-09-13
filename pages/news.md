@@ -1,7 +1,8 @@
 ---
 title: News
-permalink: /news/
 ---
+
+<!-- permalink: /news/ -->
 
 # News
 
