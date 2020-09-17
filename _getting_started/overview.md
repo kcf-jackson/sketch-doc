@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Docsy Jekyll Theme
-permalink: /welcome/
 ---
 
 # Welcome to Docsy Jekyll

@@ -12,9 +12,8 @@
 
 <div class="header-container jumbotron">
     <div class="container">
-        <h1>Interactive Visualisation in R</h1>
-        <p>Simple and modern design for publishing blog posts, documentation and many more things about your project.
-          You can now clone and start to create a website for your project like this one.</p>
+        <h1>Sketch</h1>
+        <p class="lead"> A R-to-JavaScript transpiler written in R</p>
         <p style="margin-bottom: 0px;"><a class="btn btn-primary btn-lg" href="{{ "/getting_started/" | relative_url }}" role="button">Learn more</a></p>
     </div>
 </div>
@@ -24,13 +23,12 @@
         <div class="col-md-6">
             <h2 class="header-light regular-pad">What is Sketch?</h2>
               <p class="lead">
-                  - Sketch is an R package for creating static, animated or interactive sketches and illustrations embeddable in R Markdown documents. 
-                  - It implements an R-to-JavaScript transpiler and enables users to write JavaScript applications using the syntax of R.
-                  - Designed for scientists, journalists, artists, business users.
+                  Sketch is an R package for creating interactive visualisation, designed for scientists, journalists, artists and business users. It lets users write JavaScript applications using the R syntax by implementing an R-to-JavaScript transpiler.
               </p>
         </div>
         <div class="col-md-6 text-center">
-            <img src="{{ "/assets/img/jekyll-dark.png" | relative_url }}" alt="Jekyll logo" class="img-responsive">
+            <iframe src="{{ "/assets/sketch_html/circle_packing_logo.html" | relative_url }}" style="border: 0; width: 530px; height: 220px;"></iframe>
+            <h6>[created using this package!]</h6>
         </div>
     </div>
     <hr>
@@ -38,22 +36,21 @@
         <div class="col-sm-4">
             <h1 class="text-center"><i class="fas fa-pencil-alt" aria-hidden="true"></i></h1>
             <h3 class="text-center">Easy to use and deploy</h3>
-            <p> R code only. Standalone static page output.</p>
+            <p> Develop your app in R and deploy it as a standalone HTML webpage (via R Markdown document), a Shiny app or even a JavaScript library!
+            </p>
         </div>
         <div class="col-sm-4">
             <h1 class="text-center"><i class="fa fa-cogs" aria-hidden="true"></i></h1>
-            <h3 class="text-center">Refined control with any JavaScript libraries for browsers.</h3>
-            <p> This includes p5, d3, vegalite, threejs, leaflet. </p>
+            <h3 class="text-center">Work with any JavaScript library</h3>
+            <p> Step up your visualisation game leveraging the popular JavaScript visualisation libraries like p5, d3, vegalite, threejs and leaflet. </p>
         </div>
         <div class="col-sm-4">
             <h1 class="text-center"><i class="fas fa-code-branch" aria-hidden="true"></i></h1>
-            <h3 class="text-center">Customisable and Extensible</h3>
-            <p> Customise your own workflow and build your domain specific libraries and applications. </p>
+            <h3 class="text-center">Full-featured</h3>
+            <p> Support DOM manipulation, R-like data structure, loading of tabular data, modules development, transpiler customisation, R6-like object-oriented programming.</p>
         </div>
     </div>
 </div>
-
-
 
 </div>
 </main>

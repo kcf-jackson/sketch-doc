@@ -1,25 +1,29 @@
 - title: Content
-  url: docs
   links:
     - title: "Getting Started"
-      url: "docs/getting-started"
+      url: "getting_started"
       children:
-        - title: "Welcome"
-          url: "welcome"
+        - title: "Getting started"
+          url: "getting_started/getting_started"
+        - title: "Overview"
+          url: "getting_started/overview"
+        - title: "First example"
+          url: "getting_started/first_example"
     - title: "Documentation"
       url: "docs"
       children:
-        - title: Features
-          url: "docs/getting-started#getting-started"
+        - title: Features and Examples
+          url: "docs/features"
         - title: Design
-          url: "docs/getting-started#development"
-        - title: Customization
-          url: "docs/getting-started#customization"
+          url: "docs/design"
+        - title: Pitfalls
+          url: "docs/pitfalls"
+        - title: Customisation
+          url: "docs/customisation"
+        - title: Resources
+          url: "docs/resources"
     - title: "Tutorials"
-      url: "docs/tutorials"
-    - title: "News"
-      url: "news"
-    - title: "About"
-      url: "about"
-    - title: Index
-      url: "tags"  
+      url: "tutorials"
+      children:
+        - title: "Tutorial 1"
+          url: "tutorials/overview"

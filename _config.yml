@@ -71,6 +71,12 @@ collections:
   docs:
     output: true
     permalink: /:collection/:path
+  getting_started:
+    output: true
+    permalink: /:collection/:path
+  tutorials:
+    output: true
+    permalink: /:collection/:path
 
 # Defaults
 defaults:
@@ -79,14 +85,12 @@ defaults:
       type: "docs"
     values:
       layout: page
-  -
-    scope:
+  - scope:
       path: ""
       type: "pages"
     values:
       layout: "page"
-  -
-    scope:
+  - scope:
       path: "posts"
       type: "posts"
     values:

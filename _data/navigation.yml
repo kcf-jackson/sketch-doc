@@ -1,10 +1,6 @@
 - title: Getting started
-  url: docs/getting-started
+  url: getting_started
 - title: Documentation
   url: docs
 - title: Tutorials
   url: tutorials
-- title: News
-  url: news
-- title: About
-  url: about
