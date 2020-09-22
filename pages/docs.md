@@ -1,13 +1,12 @@
 ---
 layout: page
-title: Documentation
+title: Features
 permalink: /docs/
 ---
 
-# Documentation
+# Features
 
-Welcome to the {{ site.title }} Documentation pages! Here you can quickly jump to a 
-particular page.
+This is the index page for the features supported by the sketch package.
 
 <div class="section-index">
     <hr class="panel-line">

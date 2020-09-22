@@ -71,7 +71,7 @@ collections:
   docs:
     output: true
     permalink: /:collection/:path
-  getting_started:
+  concepts:
     output: true
     permalink: /:collection/:path
   tutorials:

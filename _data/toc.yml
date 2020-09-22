@@ -1,29 +1,31 @@
-- title: Content
+- title: Documentation
   links:
     - title: "Getting Started"
       url: "getting_started"
       children:
-        - title: "Getting started"
-          url: "getting_started/getting_started"
         - title: "Overview"
-          url: "getting_started/overview"
+          url: "getting_started#overview"
+        - title: "Installation"
+          url: "getting_started#installation"
         - title: "First example"
-          url: "getting_started/first_example"
-    - title: "Documentation"
-      url: "docs"
+          url: "getting_started#first-example"
+        - title: "Next step"
+          url: "getting_started#next-step"
+    - title: Concepts
+      url: "concepts/"
       children:
-        - title: Features and Examples
-          url: "docs/features"
-        - title: Design
-          url: "docs/design"
+        - title: "Special Operators"
+          url: "concepts/header_operators"
         - title: Pitfalls
-          url: "docs/pitfalls"
+          url: "concepts/pitfalls"
+    - title: Features
+      url: "docs/"
+      children:
+        - title: "R Support"
+          url: docs/supported_r_functions
         - title: Customisation
-          url: "docs/customisation"
-        - title: Resources
-          url: "docs/resources"
+          url: docs/customisation
+    - title: "Resources"
+      url: "resources"
     - title: "Tutorials"
       url: "tutorials"
-      children:
-        - title: "Tutorial 1"
-          url: "tutorials/overview"
