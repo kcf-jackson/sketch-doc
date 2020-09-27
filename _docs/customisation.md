@@ -29,8 +29,8 @@ rule_1
     ## Rule: Rewrite 'Cpp' to 'JS'.
     ## function (x) 
     ## subst(x, pattern = from, replacement = to)
-    ## <bytecode: 0x7fb0e0bc17f8>
-    ## <environment: 0x7fb0e0b6b318>
+    ## <bytecode: 0x7f84e302e5f8>
+    ## <environment: 0x7f84e17cfd18>
 
 ``` r
 expr <- parse_expr("R + Cpp")
@@ -73,8 +73,8 @@ rule_addition
     ## Rule: Rewrite '+' to 'math.add'.
     ## function (x) 
     ## subst(x, pattern = from, replacement = to)
-    ## <bytecode: 0x7fb0e0bc17f8>
-    ## <environment: 0x7fb0e3e177e0>
+    ## <bytecode: 0x7f84e302e5f8>
+    ## <environment: 0x7f84e367b1e0>
 
 Once the rule is created, it can be passed to the transpiler using the
 `rules` argument. Specifically,
