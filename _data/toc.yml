@@ -23,6 +23,8 @@
       children:
         - title: "R Support"
           url: docs/supported_r_functions
+        - title: "Usage with R Markdown and Shiny"
+          url: docs/Usage_with_RMD_and_shiny
         - title: Customisation
           url: docs/customisation
     - title: "Resources"
