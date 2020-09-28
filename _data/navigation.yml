@@ -1,6 +1,8 @@
 - title: Getting started
   url: getting_started
-- title: Documentation
-  url: docs
+- title: Concepts
+  url: concepts/
+- title: Features
+  url: docs/
 - title: Tutorials
   url: tutorials
