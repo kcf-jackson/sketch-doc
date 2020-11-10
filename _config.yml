@@ -32,9 +32,9 @@ github_user: "kcf-jackson"
 github_repo: "sketch"
 
 # # Optional
-# twitter: vsoch
-# linkedin: vsochat
-# dockerhub: vanessa
+# twitter: kcf_jackson
+# linkedin: ...
+# dockerhub: ...
 
 # Should there be feedback buttons at the bottom of pages?
 feedback: false
@@ -68,30 +68,43 @@ exclude: [_site, CHANGELOG.md, LICENSE, README.md, vendor]
 
 # Collections
 collections:
-  docs:
-    output: true
-    permalink: /:collection/:path
-  concepts:
-    output: true
-    permalink: /:collection/:path
   tutorials:
+    output: true
+    permalink: /:collection/:path
+  how_to_guides:
+    output: true
+    permalink: /:collection/:path
+  explanation:
+    output: true
+    permalink: /:collection/:path
+  reference:
     output: true
     permalink: /:collection/:path
 
 # Defaults
 defaults:
   - scope:
-      path: "_docs"
-      type: "docs"
+      path: "_tutorials"
+      type: "tutorials"
     values:
       layout: page
   - scope:
-      path: ""
+      path: "_how_to_guides"
+      type: "how_to_guides"
+    values:
+      layout: page
+  - scope:
+      path: "_explanation"
+      type: "explanation"
+    values:
+      layout: page
+  - scope:
+      path: "_reference"
+      type: "reference"
+    values:
+      layout: page
+  - scope:
+      path: "pages"
       type: "pages"
     values:
       layout: "page"
-  - scope:
-      path: "posts"
-      type: "posts"
-    values:
-      layout: "post"

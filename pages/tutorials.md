@@ -1,10 +1,16 @@
 ---
 layout: page
-title: Tutorials
+title: Documentation/Tutorials
 permalink: /tutorials/
 ---
 
-# Tutorials [Work In Progress] / Gallery
+
+# Tutorials 
+
+The tutorials section showcases some use cases and provide a step-by-step breakdown of the development process. This is to help you further explore the package, pick up some interactive visualisation techniques and build your own applications. You are encouraged to share your work here so that we can learn from each other!
+
+
+# Examples [Work In Progress] / Gallery
 
 The tutorials are work in progress. In the meantime, here are some visualisations made in R using our package!
 

@@ -1,18 +1,19 @@
 ---
 layout: page
-title: Documentation
-permalink: /concepts/
+title: 'Documentation/Reference'
+permalink: /reference/
 ---
 
-# Concepts
+# Reference
 
-This is the index page for the fundamentals of the sketch package.
+The reference section contains information about the package functions (R and JavaScript) and also some other resources.
 
 <div class="section-index">
     <hr class="panel-line">
-    {% for post in site.concepts  %}        
+    {% for post in site.reference  %}        
     <div class="entry">
     <h5><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h5>
     <p>{{ post.description }}</p>
     </div>{% endfor %}
 </div>
+

@@ -11,23 +11,26 @@
           url: "getting_started#first-example-with-sketch"
         - title: "Next step"
           url: "getting_started#next-step"
-    - title: Concepts
-      url: "concepts/"
+    - title: "Tutorials"
+      url: "tutorials/"
+    - title: "Explanation"
+      url: "explanation/"
       children:
         - title: "Special Operators"
-          url: "concepts/header_operators"
+          url: "explanation/header_operators"
         - title: Pitfalls
-          url: "concepts/pitfalls"
-    - title: Features
-      url: "docs/"
+          url: "explanation/pitfalls"
+    - title: "How-to Guides"
+      url: "how_to_guides/"
       children:
         - title: "R Support"
-          url: docs/supported_r_functions
+          url: how_to_guides/supported_r_functions
         - title: "Usage with R Markdown and Shiny"
-          url: docs/Usage_with_RMD_and_shiny
+          url: how_to_guides/Usage_with_RMD_and_shiny
         - title: Customisation
-          url: docs/customisation
-    - title: "Resources"
-      url: "resources"
-    - title: "Tutorials"
-      url: "tutorials"
+          url: how_to_guides/customisation
+    - title: "Reference"
+      url: "reference/"
+      children:
+        - title: "Resources"
+          url: reference/resources

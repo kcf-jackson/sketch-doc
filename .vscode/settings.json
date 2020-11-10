@@ -1,0 +1,16 @@
+{
+    "files.exclude": {
+        "_includes/": true,
+        "_layouts/": true,
+        "_site/": true,
+        ".circleci/": true,
+        "assets": true,
+        "docker-compose.yaml": true,
+        ".gitignore": true,
+        "CHANGELOG.md": true,
+        "Gemfile": true,
+        "Gemfile.lock": true,
+        "LICENSE": true,
+        "VERSION": true,
+    }
+}

@@ -1,9 +1,8 @@
 ---
-title: 'Resources'
-layout: 'default'
-permalink: '/resources/'
+title: 'Reference'
+layout: 'page'
+description: 'JavaScript libraries resources'
 ---
-
 
 # Resources
 

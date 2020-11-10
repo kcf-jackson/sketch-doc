@@ -1,6 +1,6 @@
 ---
 layout: index
-title: Docsy Jekyll Theme
+title: Sketch - an R-to-JavaScript transpiler
 permalink: /
 ---
 
