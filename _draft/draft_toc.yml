@@ -1,0 +1,40 @@
+- title: Documentation
+  links:
+    - title: "Getting Started"
+      url: "getting_started"
+      children:
+        - title: "Overview"
+          url: "getting_started#overview"
+        - title: "Installation"
+          url: "getting_started#installation"
+        - title: "First example"
+          url: "getting_started#first-example"
+        - title: "Next step"
+          url: "getting_started#next-step"
+    - title: Concepts and Design
+      url: "docs/design"
+      children:
+        - title: "Special Operators"
+          url: "docs/header_operators"
+        - title: Pitfalls
+          url: "docs/pitfalls"
+        - title: Transpiling R code to JavaScript
+          url: docs/transpilation
+        - title: The structure of the transpiler
+          url: docs/transpiler_structure
+    - title: Features
+      url: "docs/features"
+      children:
+        - title: Supported R functions
+          url: docs/supported_r_functions
+        - title: R data structure
+          url: docs/r_data_structure
+        - title: Customisation
+          url: docs/customisation
+    - title: Resources
+      url: "docs/resources"
+    - title: "Tutorials"
+      url: "tutorials"
+      children:
+        - title: "Tutorial 1"
+          url: "tutorials/overview"
