@@ -1,19 +1,25 @@
 ---
-title: 'Reference'
-layout: 'page'
-description: 'JavaScript libraries resources'
+title: 'Resources'
+layout: 'default'
+description: 'JavaScript libraries API reference'
 ---
 
-# Resources
+Resources
+=========
 
 ### JavaScript libraries API page
 
-p5.js: <https://p5js.org/reference/>
+p5.js:
+<a href="https://p5js.org/reference/" class="uri">https://p5js.org/reference/</a>
 
-d3.js: <https://github.com/d3/d3/wiki>
+d3.js:
+<a href="https://github.com/d3/d3/wiki" class="uri">https://github.com/d3/d3/wiki</a>
 
-vegalite.js: <https://vega.github.io/vega-lite/docs/>
+vegalite.js:
+<a href="https://vega.github.io/vega-lite/docs/" class="uri">https://vega.github.io/vega-lite/docs/</a>
 
-plotly.js: <https://plotly.com/javascript/>
+plotly.js:
+<a href="https://plotly.com/javascript/" class="uri">https://plotly.com/javascript/</a>
 
-tensorflow.js: <https://js.tensorflow.org/api/latest/>
+tensorflow.js:
+<a href="https://js.tensorflow.org/api/latest/" class="uri">https://js.tensorflow.org/api/latest/</a>

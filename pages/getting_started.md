@@ -1,11 +1,11 @@
 ---
-title: 'Getting started'
+title: 'Documentation/Getting started'
 layout: 'default'
 permalink: '/getting_started/'
 ---
 
-
-# Getting started
+Getting started
+===============
 
 ### Overview
 
@@ -14,24 +14,22 @@ visualisations. It lets users develop JavaScript-style visualisations
 using just the R syntax by transpiling R code into JavaScript code. It
 is designed to help
 
-  - researchers create domain specific visualisation to support
+-   researchers create domain specific visualisation to support
     development and sharing of research,
-  - journalists and science communicators publish high-quality and
+-   journalists and science communicators publish high-quality and
     engaging interactive graphics,
-  - business users make customised in-house reports, and
-  - general users learn generative arts and interactive data
-    visualisation.
+-   business users make customised in-house reports, and
+-   general users learn generative arts and interactive
+    data visualisation.
 
------
+------------------------------------------------------------------------
 
 ### Installation
 
-``` r
-# install.packages("remotes")
-remotes::install_github("kcf-jackson/sketch")
-```
+    # install.packages("remotes")
+    remotes::install_github("kcf-jackson/sketch")
 
------
+------------------------------------------------------------------------
 
 ### Running a sketch R file
 
@@ -42,10 +40,11 @@ There are two ways to run a sketch R file.
 
 2.  If you use RStudio, there is an add-in “source a sketch R file”
     listed under this package (consider binding that to the key
-    combination alt-shift-s), and that sources the active tab in the
-    editor. Alternatively, you can call the `source_active()` function.
+    combination alt-shift-s), and that sources the active tab in
+    the editor. Alternatively, you can call the
+    `source_active()` function.
 
------
+------------------------------------------------------------------------
 
 ### First example with `sketch`
 
@@ -63,39 +62,35 @@ As the first example with `sketch`, we will use
     &lt;script src=&quot;data:application/javascript;base64,cGVyc29uID0gZnVuY3Rpb24oaWQpIHsKICAgIGxldCByZXMKICAgIHJlcyA9IHsgaWQ6IGlkLCB4OiBSLnJ1bmlmKDEsIDAsIDQwMCksIHk6IFIucnVuaWYoMSwgMCwgMzAwKSwgdng6IFIucnVuaWYoMSwgLTIsIDIpLCB2eTogUi5ydW5pZigxLCAtMiwgMikgfQogICAgcmV0dXJuKHJlcykKfQptb3ZlID0gZnVuY3Rpb24ocGVyc29uKSB7CiAgICBsZXQgbmV3X3gsIG5ld195CiAgICBuZXdfeCA9IFIuYWRkKHBlcnNvbi54LCBwZXJzb24udngpCiAgICBuZXdfeSA9IFIuYWRkKHBlcnNvbi55LCBwZXJzb24udnkpCiAgICBpZiAoUi5vcihSLkxUKG5ld194LCAwKSwgUi5HVChuZXdfeCwgNDAwKSkpIHsKICAgICAgICBwZXJzb24udnggPSBSLm11bHRpcGx5KHBlcnNvbi52eCwgLTEpCiAgICB9IGVsc2UgewogICAgICAgIHBlcnNvbi54ID0gbmV3X3gKICAgIH0KICAgIGlmIChSLm9yKFIuTFQobmV3X3ksIDApLCBSLkdUKG5ld195LCAzMDApKSkgewogICAgICAgIHBlcnNvbi52eSA9IFIubXVsdGlwbHkocGVyc29uLnZ5LCAtMSkKICAgIH0gZWxzZSB7CiAgICAgICAgcGVyc29uLnkgPSBuZXdfeQogICAgfQp9CnJhZGl1cyA9IDUKcGVvcGxlID0gUi5tYXAoUi5zZXEoMSwgNTApLCBwZXJzb24pCnNldHVwID0gZnVuY3Rpb24oKSB7CiAgICBjcmVhdGVDYW52YXMoNDAwLCAzMDApCn0KZHJhdyA9IGZ1bmN0aW9uKCkgewogICAgYmFja2dyb3VuZCgwLCAwLCAzMykKICAgIGZvciAobGV0IHBlcnNvbiBvZiBwZW9wbGUpIHsKICAgICAgICBmaWxsKDE5MCwgMTI4LCAwKQogICAgICAgIGNpcmNsZShwZXJzb24ueCwgcGVyc29uLnksIFIubXVsdGlwbHkoMiwgcmFkaXVzKSkKICAgICAgICBtb3ZlKHBlcnNvbikKICAgIH0KfQo=&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;" style="border: none; width: 600px; height: 330px;">
-
 </iframe>
-
-  - An important aspect of this package is that “Apps” produced by
+-   An important aspect of this package is that “Apps” produced by
     `sketch` run in the browser natively without an R back-end. The App
     is live, and it supports interactivity.
 
-  - In fact, you can write sketch code directly in R Markdown documents,
+-   In fact, you can write sketch code directly in R Markdown documents,
     generate an HTML file, and share it online easily (just like this
-    page you are reading right now\!).
+    page you are reading right now!).
 
-  - p5.js is picked because it has an user-friendly API and many good
+-   p5.js is picked because it has an user-friendly API and many good
     learning resources online.
 
------
+------------------------------------------------------------------------
 
 #### i. Basic structure
 
 The structure of a `p5` application looks like this:
 
-``` sketch
-#! load_library("p5")
+    #! load_library("p5")
 
-setup <- function() {       
-    createCanvas(400, 300)  # create a canvas of size 400 x 300 (w x h)
-}
+    setup <- function() {       
+        createCanvas(400, 300)  # create a canvas of size 400 x 300 (w x h)
+    }
 
-draw <- function() {        
-    background(0, 0, 33)    # paint the background with the RGB colour
-    fill("red")             # change fill colour to "red"
-    circle(200, 150, 50)    # draw a circle (x, y, diameter)
-}
-```
+    draw <- function() {        
+        background(0, 0, 33)    # paint the background with the RGB colour
+        fill("red")             # change fill colour to "red"
+        circle(200, 150, 50)    # draw a circle (x, y, diameter)
+    }
 
 <iframe srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -108,20 +103,17 @@ draw <- function() {
     &lt;script src=&quot;data:application/javascript;base64,c2V0dXAgPSBmdW5jdGlvbigpIHsKICAgIGNyZWF0ZUNhbnZhcyg0MDAsIDMwMCkKfQpkcmF3ID0gZnVuY3Rpb24oKSB7CiAgICBiYWNrZ3JvdW5kKDAsIDAsIDMzKQogICAgZmlsbCgicmVkIikKICAgIGNpcmNsZSgyMDAsIDE1MCwgNTApCn0K&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;" style="border: none; width: 600px; height: 330px;">
-
 </iframe>
-
-  - `#! load_library` is used to load the `p5` library. Despite being
+-   `#! load_library` is used to load the `p5` library. Despite being
     commented out, lines starting with `#!` are actually processed by
     the `sketch` package.
 
-  - p5.js looks for functions named (specifically) `setup` and `draw`,
+-   p5.js looks for functions named (specifically) `setup` and `draw`,
     and it runs
-    
-      - `setup` once at the start of the App, and
-      - `draw` iteratively 60 times per second after the App starts.
 
-  - `createCanvas`, `background`, `fill` and `circle` are functions
+    -   `setup` once at the start of the App, and
+    -   `draw` iteratively 60 times per second after the App starts.
+-   `createCanvas`, `background`, `fill` and `circle` are functions
     provided by p5.js for drawing on the screen.
 
 #### ii. Add more circles
@@ -130,33 +122,31 @@ Let’s create a “person” object, and draw 50 of them on the screen. We
 need an `id` to identify the person and its coordinates `x` and `y` at
 which a circle will be drawn.
 
-``` sketch
-#! load_library("p5")
+    #! load_library("p5")
 
-# Make a "person" object
-person <- function(id) {
-    declare(res)    # New variable in a function must be declared before use!
-    res <- list(id = id, 
-                x = runif(1, 0, 400), y = runif(1, 0, 300))
-    return(res)     # Return must be explicit, or it will return "undefined".
-}
-
-# Set up variables
-radius <- 5
-people <- map(1:50, person)
-
-setup <- function() {
-    createCanvas(400, 300)  
-}
-
-draw <- function() {
-    background(0, 0, 33)    
-    for (person in people) {   # Use a for loop to draw one person at a time
-        fill(190, 128, 0)                
-        circle(person$x, person$y, 2*radius)   
+    # Make a "person" object
+    person <- function(id) {
+        declare(res)    # New variable in a function must be declared before use!
+        res <- list(id = id, 
+                    x = runif(1, 0, 400), y = runif(1, 0, 300))
+        return(res)     # Return must be explicit, or it will return "undefined".
     }
-}
-```
+
+    # Set up variables
+    radius <- 5
+    people <- map(1:50, person)
+
+    setup <- function() {
+        createCanvas(400, 300)  
+    }
+
+    draw <- function() {
+        background(0, 0, 33)    
+        for (person in people) {   # Use a for loop to draw one person at a time
+            fill(190, 128, 0)                
+            circle(person$x, person$y, 2*radius)   
+        }
+    }
 
 <iframe srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -169,9 +159,7 @@ draw <- function() {
     &lt;script src=&quot;data:application/javascript;base64,cGVyc29uID0gZnVuY3Rpb24oaWQpIHsKICAgIGxldCByZXMKICAgIHJlcyA9IHsgaWQ6IGlkLCB4OiBSLnJ1bmlmKDEsIDAsIDQwMCksIHk6IFIucnVuaWYoMSwgMCwgMzAwKSB9CiAgICByZXR1cm4ocmVzKQp9CnJhZGl1cyA9IDUKcGVvcGxlID0gUi5tYXAoUi5zZXEoMSwgNTApLCBwZXJzb24pCnNldHVwID0gZnVuY3Rpb24oKSB7CiAgICBjcmVhdGVDYW52YXMoNDAwLCAzMDApCn0KZHJhdyA9IGZ1bmN0aW9uKCkgewogICAgYmFja2dyb3VuZCgwLCAwLCAzMykKICAgIGZvciAobGV0IHBlcnNvbiBvZiBwZW9wbGUpIHsKICAgICAgICBmaWxsKDE5MCwgMTI4LCAwKQogICAgICAgIGNpcmNsZShwZXJzb24ueCwgcGVyc29uLnksIFIubXVsdGlwbHkoMiwgcmFkaXVzKSkKICAgIH0KfQo=&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;" style="border: none; width: 600px; height: 330px;">
-
 </iframe>
-
 #### iii. Add movements
 
 To make the people move, we add two velocity states `vx` and `vy` to the
@@ -186,56 +174,54 @@ indicate where one should expect object modification.
 
 (\*Did you notice you have been writing JavaScript?)
 
-``` sketch
-#! load_library("p5")
+    #! load_library("p5")
 
-# Make a "person" object
-person <- function(id) {
-    declare(res)    
-    res <- list(id = id, 
-                x = runif(1, 0, 400), y = runif(1, 0, 300),
-                vx = runif(1, -2, 2), vy = runif(1, -2, 2))  # Add velocity
-    return(res)
-}
-
-move <- function(person) {
-    declare (new_x, new_y)            # Do not forget the variable declaration!
-    new_x <- person$x + person$vx     # Update position
-    new_y <- person$y + person$vy
-    
-    # If the new position is out of the screen, the person should turn back!
-    # Otherwise, move to the new position
-    if (new_x < 0 || new_x > 400) { 
-        person$vx <<- person$vx * -1  # Turn back!
-    } else {
-        person$x <<- new_x            # Move to the new position
+    # Make a "person" object
+    person <- function(id) {
+        declare(res)    
+        res <- list(id = id, 
+                    x = runif(1, 0, 400), y = runif(1, 0, 300),
+                    vx = runif(1, -2, 2), vy = runif(1, -2, 2))  # Add velocity
+        return(res)
     }
-    
-    # Do the same for y
-    if (new_y < 0 || new_y > 300) { 
-        person$vy <<- person$vy * -1  # Turn back!
-    } else {
-        person$y <<- new_y            # Move to the new position
-    } 
-}
 
-# Set up variables
-radius <- 5
-people <- map(1:50, person)
-
-setup <- function() {
-    createCanvas(400, 300)  
-}
-
-draw <- function() {
-    background(0, 0, 33)    
-    for (person in people) {
-        fill(190, 128, 0)                
-        circle(person$x, person$y, 2*radius)
-        move(person)                  # Call `move` here
+    move <- function(person) {
+        declare (new_x, new_y)            # Do not forget the variable declaration!
+        new_x <- person$x + person$vx     # Update position
+        new_y <- person$y + person$vy
+        
+        # If the new position is out of the screen, the person should turn back!
+        # Otherwise, move to the new position
+        if (new_x < 0 || new_x > 400) { 
+            person$vx <<- person$vx * -1  # Turn back!
+        } else {
+            person$x <<- new_x            # Move to the new position
+        }
+        
+        # Do the same for y
+        if (new_y < 0 || new_y > 300) { 
+            person$vy <<- person$vy * -1  # Turn back!
+        } else {
+            person$y <<- new_y            # Move to the new position
+        } 
     }
-}
-```
+
+    # Set up variables
+    radius <- 5
+    people <- map(1:50, person)
+
+    setup <- function() {
+        createCanvas(400, 300)  
+    }
+
+    draw <- function() {
+        background(0, 0, 33)    
+        for (person in people) {
+            fill(190, 128, 0)                
+            circle(person$x, person$y, 2*radius)
+            move(person)                  # Call `move` here
+        }
+    }
 
 <iframe srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -248,32 +234,30 @@ draw <- function() {
     &lt;script src=&quot;data:application/javascript;base64,cGVyc29uID0gZnVuY3Rpb24oaWQpIHsKICAgIGxldCByZXMKICAgIHJlcyA9IHsgaWQ6IGlkLCB4OiBSLnJ1bmlmKDEsIDAsIDQwMCksIHk6IFIucnVuaWYoMSwgMCwgMzAwKSwgdng6IFIucnVuaWYoMSwgLTIsIDIpLCB2eTogUi5ydW5pZigxLCAtMiwgMikgfQogICAgcmV0dXJuKHJlcykKfQptb3ZlID0gZnVuY3Rpb24ocGVyc29uKSB7CiAgICBsZXQgbmV3X3gsIG5ld195CiAgICBuZXdfeCA9IFIuYWRkKHBlcnNvbi54LCBwZXJzb24udngpCiAgICBuZXdfeSA9IFIuYWRkKHBlcnNvbi55LCBwZXJzb24udnkpCiAgICBpZiAoUi5vcihSLkxUKG5ld194LCAwKSwgUi5HVChuZXdfeCwgNDAwKSkpIHsKICAgICAgICBwZXJzb24udnggPSBSLm11bHRpcGx5KHBlcnNvbi52eCwgLTEpCiAgICB9IGVsc2UgewogICAgICAgIHBlcnNvbi54ID0gbmV3X3gKICAgIH0KICAgIGlmIChSLm9yKFIuTFQobmV3X3ksIDApLCBSLkdUKG5ld195LCAzMDApKSkgewogICAgICAgIHBlcnNvbi52eSA9IFIubXVsdGlwbHkocGVyc29uLnZ5LCAtMSkKICAgIH0gZWxzZSB7CiAgICAgICAgcGVyc29uLnkgPSBuZXdfeQogICAgfQp9CnJhZGl1cyA9IDUKcGVvcGxlID0gUi5tYXAoUi5zZXEoMSwgNTApLCBwZXJzb24pCnNldHVwID0gZnVuY3Rpb24oKSB7CiAgICBjcmVhdGVDYW52YXMoNDAwLCAzMDApCn0KZHJhdyA9IGZ1bmN0aW9uKCkgewogICAgYmFja2dyb3VuZCgwLCAwLCAzMykKICAgIGZvciAobGV0IHBlcnNvbiBvZiBwZW9wbGUpIHsKICAgICAgICBmaWxsKDE5MCwgMTI4LCAwKQogICAgICAgIGNpcmNsZShwZXJzb24ueCwgcGVyc29uLnksIFIubXVsdGlwbHkoMiwgcmFkaXVzKSkKICAgICAgICBtb3ZlKHBlcnNvbikKICAgIH0KfQo=&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;" style="border: none; width: 600px; height: 330px;">
-
 </iframe>
-
 #### Summary
 
 We have learnt that
 
-  - `#! load_library("p5")` is used to load the
+-   `#! load_library("p5")` is used to load the
     [p5.js](http://p5js.org/) library,
-  - `setup` and `draw` forms the basic structure of a `p5` canvas,
-  - `background`, `fill` and `circle` are drawing functions from p5.js,
-  - new variables inside a function must be declared before use, and
-  - JavaScript passes object by reference.
+-   `setup` and `draw` forms the basic structure of a `p5` canvas,
+-   `background`, `fill` and `circle` are drawing functions from p5.js,
+-   new variables inside a function must be declared before use, and
+-   JavaScript passes object by reference.
 
 ### Next step
 
-That’s it\! You have successfully written a JavaScript App without
-actually writing any Javascript\! I hope you find the examples easy to
+That’s it! You have successfully written a JavaScript App without
+actually writing any Javascript! I hope you find the examples easy to
 follow and are convinced that *using* JavaScript - even to a great
 extent - does not need to be hard. Leveraging the existing JavaScript
 libraries, `sketch` opens up many new possibilities with visualisations.
 For the next step,
 
-  - see [Concepts](../concepts/) for the fundamentals of the package,
+-   see [Concepts](../concepts/) for the fundamentals of the package,
 
-  - see [Features](../docs/) for the other features of the package, or
+-   see [Features](../docs/) for the other features of the package, or
 
-  - follow the [Tutorials](../tutorials/) to make some interactive
-    visualisations\!
+-   follow the [Tutorials](../tutorials/) to make some interactive
+    visualisations!

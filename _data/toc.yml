@@ -16,15 +16,15 @@
     - title: "Explanation"
       url: "explanation/"
       children:
-        - title: "Special Operators"
-          url: "explanation/header_operators"
         - title: Pitfalls
           url: "explanation/pitfalls"
+        - title: "R Support"
+          url: explanation/supported_r_functions
     - title: "How-to Guides"
       url: "how_to_guides/"
       children:
-        - title: "R Support"
-          url: how_to_guides/supported_r_functions
+        - title: "Special Operators"
+          url: "how_to_guides/header_operators"
         - title: "Usage with R Markdown and Shiny"
           url: how_to_guides/Usage_with_RMD_and_shiny
         - title: Customisation

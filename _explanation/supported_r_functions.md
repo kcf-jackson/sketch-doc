@@ -1,76 +1,292 @@
 ---
 title: 'R Support'
 layout: 'default'
-description: 'R functions and data structure supported by `sketch`'
+description: 'What R functions and data structure are supported by `sketch`?'
 ---
 
-
-## Basic conversion from R to JavaScript
+Basic conversion from R to JavaScript
+-------------------------------------
 
 The package currently has 188 AST rewriting rules. Here are a list of
 the basic ones.
 
-|       Description       |                                 R                                 |                            JavaScript                             |
-| :---------------------: | :---------------------------------------------------------------: | :---------------------------------------------------------------: |
-| Assignment of variable  |                             `x <- 1`                              |                              `x = 1`                              |
-| Access object attribute |                              `obj$x`                              |                              `obj.x`                              |
-|    Vector (JS Array)    |                        `c(1, 2, 3, 4, 5)`                         |                         `[1, 2, 3, 4, 5]`                         |
-|    List (JS Object)     |                       `list(x = 1, y = 2)`                        |                           `{x:1, y:2}`                            |
-|      Conditionals       | `if (cond) {...}` <br/> `else if (cond) {...}` <br/> `else {...}` | `if (cond) {...}` <br/> `else if (cond) {...}` <br/> `else {...}` |
-|        For-loop         |                    `for (x in iterable) {...}`                    |                  `for (let x of iterable) {...}`                  |
-|       While-loop        |                       `while (cond) {...}`                        |                       `while (cond) {...}`                        |
-
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 42%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">
+Description
+</th>
+<th style="text-align: center;">
+R
+</th>
+<th style="text-align: center;">
+JavaScript
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">
+Assignment of variable
+</td>
+<td style="text-align: center;">
+<code>x &lt;- 1</code>
+</td>
+<td style="text-align: center;">
+<code>x = 1</code>
+</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">
+Access object attribute
+</td>
+<td style="text-align: center;">
+<code>obj$x</code>
+</td>
+<td style="text-align: center;">
+<code>obj.x</code>
+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">
+Vector (JS Array)
+</td>
+<td style="text-align: center;">
+<code>c(1, 2, 3, 4, 5)</code>
+</td>
+<td style="text-align: center;">
+<code> 1, 2, 3, 4, 5 </code>
+</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">
+List (JS Object)
+</td>
+<td style="text-align: center;">
+<code>list(x = 1, y = 2)</code>
+</td>
+<td style="text-align: center;">
+<code>{x:1, y:2}</code>
+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">
+Conditionals
+</td>
+<td style="text-align: center;">
+<code>if (cond) {...}</code> <br/> <code>else if (cond) {...}</code>
+<br/> <code>else {...}</code>
+</td>
+<td style="text-align: center;">
+<code>if (cond) {...}</code> <br/> <code>else if (cond) {...}</code>
+<br/> <code>else {...}</code>
+</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">
+For-loop
+</td>
+<td style="text-align: center;">
+<code>for (x in iterable) {...}</code>
+</td>
+<td style="text-align: center;">
+<code>for (let x of iterable) {...}</code>
+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">
+While-loop
+</td>
+<td style="text-align: center;">
+<code>while (cond) {...}</code>
+</td>
+<td style="text-align: center;">
+<code>while (cond) {...}</code>
+</td>
+</tr>
+</tbody>
+</table>
 Note that the conversion is not perfect, e.g. 
 
-  - R vector cannot be nested, while JS array can be nested.
-    
-      - `c(1, 2, c(3,4), 5)` is the same as `c(1, 2, 3, 4, 5)`, but
-      - `[1, 2, [3, 4], 5]` is not the same as `[1, 2, 3, 4, 5]`.
+-   R vector cannot be nested, while JS array can be nested.
 
-  - R list can be unnamed, but JS object must be fully named.
-    
-      - But don’t worry, when you try to convert an R unnamed list to JS
+    -   `c(1, 2, c(3,4), 5)` is the same as `c(1, 2, 3, 4, 5)`, but
+    -   `[1, 2, [3, 4], 5]` is not the same as `[1, 2, 3, 4, 5]`.
+-   R list can be unnamed, but JS object must be fully named.
+
+    -   But don’t worry, when you try to convert an R unnamed list to JS
         object, `sketch` will warn you about it :)
 
-## Supported R functions
+Supported R functions
+---------------------
 
-| Groups                 | Functions                                                                                                                                                                                     |
-| :--------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Vector                 | c, extract, extractAssign, rep, seq                                                                                                                                                           |
-| Matrix                 | matrix, extract, extractAssign                                                                                                                                                                |
-| List                   | list, extract, extractAssign, extract2, extract2Assign, names, append                                                                                                                         |
-| Dataframe              | data.frame, extract, extract2, extractAssign, mutate, filter, select, arrange                                                                                                                 |
-| Binary operators       | add, subtract, multiply, divide, pow, mod, intDivide                                                                                                                                          |
-| Comparison operators   | all\_equal, EQ, LT, GT, NEQ, LEQ, GEQ                                                                                                                                                         |
-| Logical operators      | and, or, xor, not                                                                                                                                                                             |
-| Math functions         | pi, abs, sign, sqrt, floor, ceiling, trunc, round, signif, cummax, cummin, cumprod, cumsum, exp, log, expm1, log1p, gamma, lgamma, digamma, trigamma, log10, log2, factorial, choose, lchoose |
-| Trigonometry functions | cos, sin, tan, cospi, sinpi, tanpi, acos, asin, atan, cosh, sinh, tanh, acosh, asinh, atanh                                                                                                   |
-| Summary and statistics | mean, median, sd, sd2, quantile, max, min, range, prod, sum, all, any                                                                                                                         |
-| Set functions          | setdiff, unique, intersect, is\_element, is\_subset, length, union                                                                                                                            |
-| Complex functions      | complex, Re, Im, Mod, Arg, Conj                                                                                                                                                               |
-| Sampling functions     | Uniform, Normal, Gamma, Exponential, Chi-squared, Lognormal, Poisson, Geometric, Binomial, Bernoulli                                                                                          |
-| Higher-order functions | Map, Filter, Reduce                                                                                                                                                                           |
-| Extra                  | erf, cot, acot, coth, acoth, csc, acsc, csch, acsch, sec, asec, sech, asech, setsymdiff                                                                                                       |
-
-## R-like data structure and processing
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 89%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">
+Groups
+</th>
+<th style="text-align: left;">
+Functions
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">
+Vector
+</td>
+<td style="text-align: left;">
+c, extract, extractAssign, rep, seq
+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">
+Matrix
+</td>
+<td style="text-align: left;">
+matrix, extract, extractAssign
+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">
+List
+</td>
+<td style="text-align: left;">
+list, extract, extractAssign, extract2, extract2Assign, names, append
+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">
+Dataframe
+</td>
+<td style="text-align: left;">
+data.frame, extract, extract2, extractAssign, mutate, filter, select,
+arrange
+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">
+Binary operators
+</td>
+<td style="text-align: left;">
+add, subtract, multiply, divide, pow, mod, intDivide
+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">
+Comparison operators
+</td>
+<td style="text-align: left;">
+all\_equal, EQ, LT, GT, NEQ, LEQ, GEQ
+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">
+Logical operators
+</td>
+<td style="text-align: left;">
+and, or, xor, not
+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">
+Math functions
+</td>
+<td style="text-align: left;">
+pi, abs, sign, sqrt, floor, ceiling, trunc, round, signif, cummax,
+cummin, cumprod, cumsum, exp, log, expm1, log1p, gamma, lgamma, digamma,
+trigamma, log10, log2, factorial, choose, lchoose
+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">
+Trigonometry functions
+</td>
+<td style="text-align: left;">
+cos, sin, tan, cospi, sinpi, tanpi, acos, asin, atan, cosh, sinh, tanh,
+acosh, asinh, atanh
+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">
+Summary and statistics
+</td>
+<td style="text-align: left;">
+mean, median, sd, sd2, quantile, max, min, range, prod, sum, all, any
+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">
+Set functions
+</td>
+<td style="text-align: left;">
+setdiff, unique, intersect, is\_element, is\_subset, length, union
+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">
+Complex functions
+</td>
+<td style="text-align: left;">
+complex, Re, Im, Mod, Arg, Conj
+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">
+Sampling functions
+</td>
+<td style="text-align: left;">
+Uniform, Normal, Gamma, Exponential, Chi-squared, Lognormal, Poisson,
+Geometric, Binomial, Bernoulli
+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">
+Higher-order functions
+</td>
+<td style="text-align: left;">
+Map, Filter, Reduce
+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">
+Extra
+</td>
+<td style="text-align: left;">
+erf, cot, acot, coth, acoth, csc, acsc, csch, acsch, sec, asec, sech,
+asech, setsymdiff
+</td>
+</tr>
+</tbody>
+</table>
+R-like data structure and processing
+------------------------------------
 
 ### Vector, Matrix and Array
 
 #### Vector
 
-``` sketch
-# Vector
-x <- 1:10
-y <- 11:20
-print(x[0])     # JavaScript uses 0-based indexing
-print(x + 1)    # Supports vector-scalar arithmetic
-print(x + y)    # Supports vector-vector arithmetic
+    # Vector
+    x <- 1:10
+    y <- 11:20
+    print(x[0])     # JavaScript uses 0-based indexing
+    print(x + 1)    # Supports vector-scalar arithmetic
+    print(x + y)    # Supports vector-vector arithmetic
 
-z <- x          # Supports passing object by *value*
-x[0] <- 999
-print(x)
-print(z)
-```
+    z <- x          # Supports passing object by *value*
+    x[0] <- 999
+    print(x)
+    print(z)
 
 <iframe srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -83,23 +299,19 @@ print(z)
     &lt;script src=&quot;data:application/javascript;base64,eCA9IFIuc2VxKDEsIDEwKQp5ID0gUi5zZXEoMTEsIDIwKQpSLnByaW50KFIuZXh0cmFjdCh4LCAwKSkKUi5wcmludChSLmFkZCh4LCAxKSkKUi5wcmludChSLmFkZCh4LCB5KSkKeiA9IHgKeCA9IFIuZXh0cmFjdEFzc2lnbih4LCA5OTksIDApClIucHJpbnQoeCkKUi5wcmludCh6KQo=&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;" style="border: none; width: 100%">
-
 </iframe>
-
 #### Matrix
 
-``` sketch
-# Matrix
-x <- matrix(1:10, 2, 5)
-y <- matrix(11:20, 2, 5)
+    # Matrix
+    x <- matrix(1:10, 2, 5)
+    y <- matrix(11:20, 2, 5)
 
-print(x[0,0])   # JavaScript uses 0-based indexing
-print(x[0, ])   # First row
-print(x[, 0])   # First column
+    print(x[0,0])   # JavaScript uses 0-based indexing
+    print(x[0, ])   # First row
+    print(x[, 0])   # First column
 
-print(x + 1)    # Supports matrix-scalar arithmetic
-print(x + y)    # Supports matrix-matrix arithmetic
-```
+    print(x + 1)    # Supports matrix-scalar arithmetic
+    print(x + y)    # Supports matrix-matrix arithmetic
 
 <iframe srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -112,22 +324,18 @@ print(x + y)    # Supports matrix-matrix arithmetic
     &lt;script src=&quot;data:application/javascript;base64,eCA9IFIubWF0cml4MihSLnNlcSgxLCAxMCksIDIsIDUpCnkgPSBSLm1hdHJpeDIoUi5zZXEoMTEsIDIwKSwgMiwgNSkKUi5wcmludChSLmV4dHJhY3QoeCwgMCwgMCkpClIucHJpbnQoUi5leHRyYWN0KHgsIDAsIFIuZW1wdHlJbmRleCh4LCAxKSkpClIucHJpbnQoUi5leHRyYWN0KHgsIFIuZW1wdHlJbmRleCh4LCAwKSwgMCkpClIucHJpbnQoUi5hZGQoeCwgMSkpClIucHJpbnQoUi5hZGQoeCwgeSkpCg==&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;" style="border: none; width: 100%">
-
 </iframe>
-
 #### Array
 
-``` sketch
-# Array
-x <- array(1:24, c(2,3,4))
-y <- array(25:48, c(2,3,4))
-print(x[0, 0, 0])  # JavaScript uses 0-based indexing
-print(x[0, 0, ])
-print(x[0, , ])
+    # Array
+    x <- array(1:24, c(2,3,4))
+    y <- array(25:48, c(2,3,4))
+    print(x[0, 0, 0])  # JavaScript uses 0-based indexing
+    print(x[0, 0, ])
+    print(x[0, , ])
 
-print(x + 1)    # Supports array-scalar arithmetic
-print(x + y)    # Supports array-array arithmetic
-```
+    print(x + 1)    # Supports array-scalar arithmetic
+    print(x + y)    # Supports array-array arithmetic
 
 <iframe srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -140,19 +348,15 @@ print(x + y)    # Supports array-array arithmetic
     &lt;script src=&quot;data:application/javascript;base64,eCA9IFIuYXJyYXkoUi5zZXEoMSwgMjQpLCBSLmMoMiwgMywgNCkpCnkgPSBSLmFycmF5KFIuc2VxKDI1LCA0OCksIFIuYygyLCAzLCA0KSkKUi5wcmludChSLmV4dHJhY3QoeCwgMCwgMCwgMCkpClIucHJpbnQoUi5leHRyYWN0KHgsIDAsIDAsIFIuZW1wdHlJbmRleCh4LCAyKSkpClIucHJpbnQoUi5leHRyYWN0KHgsIDAsIFIuZW1wdHlJbmRleCh4LCAxKSwgUi5lbXB0eUluZGV4KHgsIDIpKSkKUi5wcmludChSLmFkZCh4LCAxKSkKUi5wcmludChSLmFkZCh4LCB5KSkK&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;" style="border: none; width: 100%">
-
 </iframe>
-
 ### List
 
-``` sketch
-# List
-list_1 <- list(x = 1, y = 2)
-print(names(list_1))
-print(list_1$x)        # Supports dollar notation
-print(list_1[0])       # Supports extract
-print(list_1[[0]])     # Supports extract2
-```
+    # List
+    list_1 <- list(x = 1, y = 2)
+    print(names(list_1))
+    print(list_1$x)        # Supports dollar notation
+    print(list_1[0])       # Supports extract
+    print(list_1[[0]])     # Supports extract2
 
 <iframe srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -165,9 +369,7 @@ print(list_1[[0]])     # Supports extract2
     &lt;script src=&quot;data:application/javascript;base64,bGlzdF8xID0geyB4OiAxLCB5OiAyIH0KUi5wcmludChSLm5hbWVzKGxpc3RfMSkpClIucHJpbnQobGlzdF8xLngpClIucHJpbnQoUi5leHRyYWN0KGxpc3RfMSwgMCkpClIucHJpbnQoUi5leHRyYWN0MihsaXN0XzEsIDApKQo=&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;" style="border: none; width: 100%">
-
 </iframe>
-
 ### Dataframe
 
 ![](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)
@@ -175,37 +377,35 @@ print(list_1[[0]])     # Supports extract2
 At the moment, `sketch` uses `dataframe.js` for the back-end for the
 data frame, and there are some differences to the data frame used in R.
 
-``` sketch
-df0 <- data.frame(
-    x = c(1, 4, 2, 2), 
-    y = c(6, 2, 10, 5), 
-    z = c(3, 4, 4, 10)
-)
+    df0 <- data.frame(
+        x = c(1, 4, 2, 2), 
+        y = c(6, 2, 10, 5), 
+        z = c(3, 4, 4, 10)
+    )
 
-print("\n===== Mutate double_x and double_y ==============================")
-double_x_fun <- function(row) { return(2 * row$get("x")) }
-double_y_fun <- function(row) { return(2 * row$get("y")) }
-df0 %>%
-    mutate("double_x" = double_x_fun, 
-           "double_y" = double_y_fun) %>%
-    print()
+    print("\n===== Mutate double_x and double_y ==============================")
+    double_x_fun <- function(row) { return(2 * row$get("x")) }
+    double_y_fun <- function(row) { return(2 * row$get("y")) }
+    df0 %>%
+        mutate("double_x" = double_x_fun, 
+               "double_y" = double_y_fun) %>%
+        print()
 
-print("\n===== Select only x and y ======================================")
-df0 %>% 
-    select("x", "y") %>% 
-    print()
+    print("\n===== Select only x and y ======================================")
+    df0 %>% 
+        select("x", "y") %>% 
+        print()
 
-print("\n===== Filter x >= 2 ============================================")
-greater_than_two <- function(row) { return(row$get("x") >= 2) }
-df0 %>% 
-    filter(greater_than_two) %>% 
-    print()
+    print("\n===== Filter x >= 2 ============================================")
+    greater_than_two <- function(row) { return(row$get("x") >= 2) }
+    df0 %>% 
+        filter(greater_than_two) %>% 
+        print()
 
-print("\n===== Arrange by x, then by y ==================================")
-df0 %>% 
-    arrange(c("x", "y")) %>% 
-    print()
-```
+    print("\n===== Arrange by x, then by y ==================================")
+    df0 %>% 
+        arrange(c("x", "y")) %>% 
+        print()
 
 <iframe srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -218,5 +418,4 @@ df0 %>%
     &lt;script src=&quot;data:application/javascript;base64,ZGYwID0gUi5kYXRhX2ZyYW1lKHsgeDogUi5jKDEsIDQsIDIsIDIpLCB5OiBSLmMoNiwgMiwgMTAsIDUpLCB6OiBSLmMoMywgNCwgNCwgMTApIH0pClIucHJpbnQoIlxuPT09PT0gTXV0YXRlIGRvdWJsZV94IGFuZCBkb3VibGVfeSA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0iKQpkb3VibGVfeF9mdW4gPSBmdW5jdGlvbihyb3cpIHsKICAgIHJldHVybihSLm11bHRpcGx5KDIsIHJvdy5nZXQoIngiKSkpCn0KZG91YmxlX3lfZnVuID0gZnVuY3Rpb24ocm93KSB7CiAgICByZXR1cm4oUi5tdWx0aXBseSgyLCByb3cuZ2V0KCJ5IikpKQp9ClIucHJpbnQoUi5tdXRhdGUoZGYwLCBbJ2RvdWJsZV94JywgJ2RvdWJsZV95J10sIFtkb3VibGVfeF9mdW4sIGRvdWJsZV95X2Z1bl0pKQpSLnByaW50KCJcbj09PT09IFNlbGVjdCBvbmx5IHggYW5kIHkgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0iKQpSLnByaW50KFIuc2VsZWN0KGRmMCwgIngiLCAieSIpKQpSLnByaW50KCJcbj09PT09IEZpbHRlciB4ID49IDIgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0iKQpncmVhdGVyX3RoYW5fdHdvID0gZnVuY3Rpb24ocm93KSB7CiAgICByZXR1cm4oUi5HRVEocm93LmdldCgieCIpLCAyKSkKfQpSLnByaW50KFIuZmlsdGVyKGRmMCwgZ3JlYXRlcl90aGFuX3R3bykpClIucHJpbnQoIlxuPT09PT0gQXJyYW5nZSBieSB4LCB0aGVuIGJ5IHkgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSIpClIucHJpbnQoUi5hcnJhbmdlKGRmMCwgUi5jKCJ4IiwgInkiKSkpCg==&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;" style="border: none; width: 100%; height: 550px;">
-
 </iframe>
